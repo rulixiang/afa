@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)https://facebookresearch.github.io/AVT/ -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+  <link rel="StyleSheet" href="./assets/style.css" type="text/css" media="all" />
+
+  <title>Learning Affinity from Attention</title>
+
+  <!-- bibliographic tags -->
+  <meta name="citation_title"
+    content="Learning Affinity from Attention: End-to-End Weakly-Supervised Semantic Segmentation with Transformers" />
+  <meta name="citation_author" content="Lixiang Ru" />
+
+  <style type="text/css">
+    #primarycontent h1 {
+      font-variant: small-caps;
+    }
+
+    #primarycontent h3 {}
+
+    #primarycontent teasertext {
+      text-align: center;
+    }
+
+    #primarycontent p {
+      text-align: center;
+    }
+
+    #primarycontent {
+      text-align: justify;
+    }
+
+    #primarycontent p {
+      text-align: justify;
+    }
+
+    #primarycontent p iframe video {
+      text-align: center;
+    }
+
+    #avatar {
+      border-radius: 50%;
+    }
+  </style>
+  <script type="text/javascript">
+    function togglevis(elid) {
+      el = document.getElementById(elid);
+      aelid = elid + "a";
+      ael = document.getElementById(aelid);
+      if (el.style.display == "none") {
+        el.style.display = "inline-table";
+        ael.innerHTML = "[Hide BibTex]";
+      } else {
+        el.style.display = "none";
+        ael.innerHTML = "[Show BibTex]";
+      }
+    }
+  </script>
+
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1051.0" data-gr-ext-installed="">
+  <div id="primarycontent">
+    <h1 align="center" itemprop="name">
+      <strong>
+        Learning Affinity from Attention: End-to-End Weakly-Supervised Semantic Segmentation with Transformers
+      </strong>
+    </h1>
+
+    <table id="people" align="center" width="80%" style="margin:auto;">
+      <tbody>
+        <tr>
+          <td  align="center">
+            <!-- <img src="./Anticipative Video Transformer_files/rohit.jpg"><br> -->
+            <a href="https://lixiangru.cn/" target="_blank"><b>Lixiang Ru</b></a><sup>&dagger;</sup>
+          </td>
+
+          <td align="center">
+            <!-- <img src="./Anticipative Video Transformer_files/kristen.jpg"><br> -->
+            <a href="https://scholar.google.com/citations?hl=zh-CN&user=rjd977cAAAAJ" target="_blank"><b>Yibing Zhan</b></a><sup>&ddagger;</sup>
+          </td>
+
+          <td align="center">
+            <!-- <img src="./Anticipative Video Transformer_files/kristen.jpg"><br> -->
+            <b>Baosheng Yu</b><sup>&para;</sup>
+          </td>
+
+          <td align="center">
+            <!-- <img src="./Anticipative Video Transformer_files/kristen.jpg"><br> -->
+            <a href="https://scholar.google.com/citations?user=Shy1gnMAAAAJ&hl=zh-CN" target="_blank"> <b>Bo Du</b></a><sup>&dagger;</sup>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table id="affiliation" width="60%" style="margin:auto;">
+      <tbody>
+        <tr>
+          <!-- <td></td> -->
+          <!-- For some reason it scales up the first td.. so adding a dummy td -->
+          <td align="center">
+            <!-- <img src="./assets/logos/whu.png" height="40px"> -->
+            <br />
+            <sup>&dagger;</sup>Wuhan University
+          </td>
+          <td align="center">
+            <!-- <img src="./assets/logos/jd.png" height="40px"> -->
+            <br />
+            <sup>&dagger;</sup>JD Explore Academy
+          </td>
+          <td align="center">
+            <!-- <img src="./assets/logos/usyd.svg" height="40px"> -->
+            <br />
+            <sup>&para;</sup>The University of Sydney
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br />
+    
+    <table class="abstract" align="center">
+      <tbody>
+        <tr>
+          <td align="center">
+            <img src="./assets/imgs/afa.gif" width="70%" />
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="abstract" align="justify">
+            <b><i>Abstract:</i></b> Weakly-supervised semantic segmentation (WSSS) with image-level labels is an important and challenging task. Due to the high training efficiency, end-to-end solutions for WSSS have received increasing attention from the community. However, current methods are mainly based on convolutional neural networks and fail to explore the global information properly, thus usually resulting in incomplete object regions. In this paper, to address the aforementioned problem, we introduce Transformers, which naturally integrate global information, to generate more integral initial pseudo labels for end-to-end WSSS. Motivated by the inherent consistency between the self-attention in Transformers and the semantic affinity, we propose an Affinity from Attention (AFA) module to learn semantic affinity from the multi-head self-attention (MHSA) in Transformers. The learned affinity is then leveraged to refine the initial pseudo labels for segmentation. In addition, to efficiently derive reliable affinity labels for supervising AFA and ensure the local consistency of pseudo labels, we devise a Pixel-Adaptive Refinement module that incorporates low-level image appearance information to refine the pseudo labels. We perform extensive experiments and our method achieves 66.0% and 38.9% mIoU on the PASCAL VOC 2012 and MS COCO 2014 datasets, respectively, significantly outperforming recent end-to-end methods and several multi-stage competitors. Code will be made publicly available.
+          </td>
+        </tr>
+        <tr></tr>
+      </tbody>
+    </table>
+
+    <!-- <h3>Paper</h3> -->
+    <hr />
+    <table align="center" width="60%" style="margin:auto;">
+      <tbody>
+        <tr>
+          <td align="center">
+            <a href="."><img src="./assets/imgs/cover.jpg" height="80px" />
+              <br />
+              Paper</a>
+          </td>
+
+          <td align="center">
+            <a href="."><img src="./assets/logos/github.svg" height="80px" />
+              <br />
+              Code</a>
+          </td>
+
+          <td align="center">
+            <a href="."><img src="./assets/imgs/cover.jpg" height="80px" />
+              <br />
+              Poster</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+
+    <h3>Sample Results</h3>
+
+    <table id="results" style="margin: auto">
+      <tbody><tr><td></td></tr>
+        <tr>
+
+          <!-- For some reason it scales up the first td.. so adding a dummy td -->
+          <td width="40%" align="center">
+            <b>&sect;.</b> Visualization of the MHSA with and without AFA.
+            
+          </td>
+          <td width="40%" align="center">
+            <b>&sect;.</b> The learned weights of each head of MHSA in the AFA module.
+          
+          </td>
+        </tr>
+
+        <tr>
+          <!-- For some reason it scales up the first td.. so adding a dummy td -->
+          <td width="50%" align="center">
+            <img src="./assets/imgs/mhsa.png" width="90%">
+          </td>
+          <td width="50%" align="center">
+            <img src="./assets/imgs/weights.png" width="70%">
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <b>&sect;.</b> Visualization of the MHSA maps, learned affinity maps, and generated pseudo labels for segmentation. &starf; denotes the query point to visualize the attention and affinity maps.
+
+    <table id="results" style="margin: auto">
+      <tbody><tr><td></td></tr>
+
+        <tr>
+          <!-- For some reason it scales up the first td.. so adding a dummy td -->
+          <td width="100%" align="center">
+            <img src="./assets/imgs/attention.png" width="90%">
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <b>&sect;.</b> Semantic segmentation results on VOC and COCO dataset.
+
+    <table id="results" style="margin: auto">
+      <tbody><tr><td></td></tr>
+        <tr>
+
+          <!-- For some reason it scales up the first td.. so adding a dummy td -->
+          <td width="50%" align="center">
+            <b>VOC 2012</b> 
+          </td>
+          <td width="50%" align="center">
+          <b>COCO 2014</b>
+          </td>
+        </tr>
+
+        <tr>
+          <!-- For some reason it scales up the first td.. so adding a dummy td -->
+          <td width="50%" align="center">
+            <img src="./assets/imgs/voc_pred.png" width="70%">
+          </td>
+          <td width="50%" align="center">
+            <img src="./assets/imgs/coco_pred.png" width="47%">
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <b>&sect;.</b> CAMs generation and semantic segmentation results on the DAVIS 2017 dataset. The model is trained on VOC 2012 dataset.
+
+    <table id="results" style="margin: auto">
+      <tbody><tr><td></td></tr>
+        <tr>
+
+          <!-- For some reason it scales up the first td.. so adding a dummy td -->
+          <td width="50%" align="center">
+            <b>CAMs from the <i>cls.</i> branch.</b> 
+          </td>
+          <td width="50%" align="center">
+          <b>Segmentation masks.</b>
+          </td>
+        </tr>
+
+        <tr>
+          <!-- For some reason it scales up the first td.. so adding a dummy td -->
+          <td width="50%" align="center">
+            <img src="./assets/demo/dog_cam.gif" width="100%">
+          </td>
+          <td width="50%" align="center">
+            <img src="./assets/demo/dog_pred.gif" width="100%">
+          </td>
+        </tr>
+
+        <tr>
+          <!-- For some reason it scales up the first td.. so adding a dummy td -->
+          <td width="50%" align="center">
+            <img src="./assets/demo/bus_cam.gif" width="100%">
+          </td>
+          <td width="50%" align="center">
+            <img src="./assets/demo/bus_pred.gif" width="100%">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Citation</h3>
+    <p>Please kindly cite our paper if you find it's helpful in your work.</p>
+    <block>
+    <pre id="bibtex">@inproceedings{ru2022learning,
+    title = {Learning Affinity from Attention: End-to-End Weakly-Supervised Semantic Segmentation with Transformers},
+    author = {Lixiang Ru and Yibing Zhan and Baosheng Yu and Bo Du}
+    booktitle = {CVPR},
+    year = {2022},
+  }</pre>
+    </block>
+
+    <h3>Acknowledgements</h3>
+    <p>
+      We heavily borrowed <a href="https://github.com/visinf/1-stage-wseg">1-stage-wseg</a> to construct our PAR. Also, we use the <a href="https://github.com/meng-tang/rloss">Regularized Loss</a> and the random walk propagation in <a href="https://github.com/jiwoon-ahn/psa">PSA</a>. Many thanks to their brilliant works!
+    </p>
+    <hr>
+  </div>
+  
+</body>
+
+<p class="footer">
+  Page template borrowed from <a href="https://facebookresearch.github.io/AVT">this link</a>.
+</p>
+
+<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
+</html>

@@ -1,0 +1,49 @@
+backbone:
+  config: mit_b1
+  stride: [4, 2, 2, 1]
+  comments: None
+
+dataset:
+  root_dir: ../VOCdevkit/VOC2012
+  name_list_dir: datasets/voc
+  num_classes: 21
+  crop_size: 320
+  resize_range: [512, 2048]
+  rescale_range: [0.5, 2.0]
+  ignore_index: 255
+
+work_dir:
+  dir: work_dir_voc
+  ckpt_dir: checkpoints
+  pred_dir: predictions
+  segs_dir: segs
+  tb_logger_dir: tb_logger
+
+train:
+  split: train_aug
+  samples_per_gpu: 2
+  max_iters: 20000
+  cam_iters: 2000
+  eval_iters: 2000
+  log_iters: 200
+
+cam:
+  bkg_score: 0.45
+  high_thre: 0.55
+  low_thre: 0.35
+  aff_thre: 0.4
+  scales: [1, 0.5, 1.5]
+
+val:
+  split: val
+
+optimizer:
+  type: AdamW
+  learning_rate: 6e-5
+  betas: [0.9, 0.999]
+  weight_decay: 0.01
+
+scheduler:
+  warmup_iter: 1500
+  warmup_ratio: 1e-6
+  power: 1.0
