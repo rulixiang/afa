@@ -7,7 +7,7 @@ Code of CVPR 2022 paper: Learning Affinity from Attention: End-to-End Weakly-Sup
 <div align="center">
 
 <br>
-  <img width="100%" alt="AFA flowchart" src="./docs/assets/imgs/afa.gif">
+  <img width="100%" alt="AFA flowchart" src="./docs/assets/imgs/afa.png">
 </div>
 
 ## Abastract
