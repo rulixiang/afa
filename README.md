@@ -2,7 +2,7 @@
 
 Code of CVPR 2022 paper: Learning Affinity from Attention: End-to-End Weakly-Supervised Semantic Segmentation with Transformers.
 
-[[arXiv]]() [[Project]](https://rulixiang.github.io/afa) [[Poster]]()
+[[arXiv]](https://arxiv.org/abs/2203.02664) [[Project]](https://rulixiang.github.io/afa) [[Poster]]()
 
 <div align="center">
 
