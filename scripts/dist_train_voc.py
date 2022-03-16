@@ -44,11 +44,6 @@ parser.add_argument("--crop_size", default=320, type=int, help="crop_size")
 parser.add_argument("--high_thre", default=0.55, type=float, help="high_bkg_score")
 parser.add_argument("--low_thre", default=0.35, type=float, help="low_bkg_score")
 
-parser.add_argument("--l1", default=1.0, type=float, help="lambda 1")
-parser.add_argument("--l2", default=0.1, type=float, help="lambda 2")
-parser.add_argument("--l3", default=0.1, type=float, help="lambda 3")
-parser.add_argument("--l4", default=0.01, type=float, help="lambda 4")
-
 parser.add_argument('--backend', default='nccl')
 
 def setup_seed(seed):
@@ -352,9 +347,7 @@ def train(cfg):
         if n_iter <= cfg.train.cam_iters:
             loss = 1.0 * cls_loss + 0.0 * seg_loss + 0.0 * aff_loss + 0.0 * reg_loss
         else: 
-            loss = args.l1 * cls_loss + args.l2 * seg_loss + args.l3 * aff_loss + args.l4 * reg_loss
-
-
+            loss = 1.0 * cls_loss + 0.1 * seg_loss + 0.1 * aff_loss + 0.01 * reg_loss
 
         avg_meter.add({'cls_loss': cls_loss.item(), 'seg_loss': seg_loss.item(), 'aff_loss': aff_loss.item()})
 

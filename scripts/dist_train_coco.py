@@ -18,7 +18,7 @@ from torch.utils.tensorboard import SummaryWriter
 from tqdm import tqdm
 
 from datasets import coco
-from utils.losses import DenseEnergyLoss, get_aff_loss, get_energy_loss
+from utils.losses import get_aff_loss
 from wetr.PAR import PAR
 from utils import evaluate, imutils
 from utils.AverageMeter import AverageMeter
@@ -273,7 +273,7 @@ def train(cfg):
     )
     logging.info('\nOptimizer: \n%s' % optimizer)
     wetr = DistributedDataParallel(wetr, device_ids=[args.local_rank], find_unused_parameters=True)
-    loss_layer = DenseEnergyLoss(weight=1e-7, sigma_rgb=15, sigma_xy=100, scale_factor=0.5)
+    # loss_layer = DenseEnergyLoss(weight=1e-7, sigma_rgb=15, sigma_xy=100, scale_factor=0.5)
     train_sampler.set_epoch(np.random.randint(cfg.train.max_iters))
     train_loader_iter = iter(train_loader)
 
@@ -334,8 +334,6 @@ def train(cfg):
         aff_loss, pos_count, neg_count = get_aff_loss(attn_pred, aff_label)
 
         segs = F.interpolate(segs, size=refined_pseudo_label.shape[1:], mode='bilinear', align_corners=False)
-
-        
 
         seg_loss = get_seg_loss(segs, refined_aff_label.type(torch.long), ignore_index=cfg.dataset.ignore_index)
         #reg_loss = get_energy_loss(img=inputs, logit=segs, label=refined_aff_label, img_box=img_box, loss_layer=loss_layer)
