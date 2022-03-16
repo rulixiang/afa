@@ -80,6 +80,10 @@ cd afa
 
 Download the pre-trained weights from the official [SegFormer](https://github.com/NVlabs/SegFormer) implementation and move them to `pretrained/`.
 
+### [Optional] Build python extension module
+
+To use the regularized loss, you need to download and compile the python extension, which is provied [here](https://github.com/meng-tang/rloss/tree/master/pytorch#build-python-extension-module). This module is not necessary and only brings subtle improvement to the final performance on VOC according to the ablation.
+
 ### Train
 To start training, just run the scripts under `launch/`.
 ```bash
@@ -91,7 +95,7 @@ bash launch/run_sbatch_attn_reg_coco.sh
 You should get the training logs by running the above commands. Also, check our training log under `logs/`.
 
 ## Results
-The generated CAMs and semantic segmentation results on the DAVIS 2017 dataset. The model is trained on VOC 2012 dataset. For more results, please see the  [[Project page]](https://rulixiang.github.io/afa) or [[Paper]]().
+The generated CAMs and semantic segmentation results on the DAVIS 2017 dataset. The model is trained on VOC 2012 dataset. For more results, please see the  [[Project page]](https://rulixiang.github.io/afa) or [[Paper]](https://arxiv.org/abs/2203.02664).
 <div align="center">
 <b>Visualization</b>. <i>Left:</i> CAMs of the cls branch. <i>Right:</i> Prediction of the seg branch.
 <br>
