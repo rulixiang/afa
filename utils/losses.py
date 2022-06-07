@@ -6,7 +6,7 @@ import torch.nn.functional as F
 import numpy as np
 import sys
 sys.path.append("./wrapper/bilateralfilter/build/lib.linux-x86_64-3.6")
-from bilateralfilter import bilateralfilter, bilateralfilter_batch
+# from bilateralfilter import bilateralfilter, bilateralfilter_batch
 
 def get_aff_loss(inputs, targets):
 

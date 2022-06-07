@@ -277,7 +277,7 @@ def train(cfg):
     )
     logging.info('\nOptimizer: \n%s' % optimizer)
     wetr = DistributedDataParallel(wetr, device_ids=[args.local_rank], find_unused_parameters=True)
-    loss_layer = DenseEnergyLoss(weight=1e-7, sigma_rgb=15, sigma_xy=100, scale_factor=0.5)
+    # loss_layer = DenseEnergyLoss(weight=1e-7, sigma_rgb=15, sigma_xy=100, scale_factor=0.5)
     train_sampler.set_epoch(np.random.randint(cfg.train.max_iters))
     train_loader_iter = iter(train_loader)
 
@@ -340,14 +340,14 @@ def train(cfg):
             refined_aff_label = refined_pseudo_label
 
         seg_loss = get_seg_loss(segs, refined_aff_label.type(torch.long), ignore_index=cfg.dataset.ignore_index)
-        reg_loss = get_energy_loss(img=inputs, logit=segs, label=refined_aff_label, img_box=img_box, loss_layer=loss_layer)
+        # reg_loss = get_energy_loss(img=inputs, logit=segs, label=refined_aff_label, img_box=img_box, loss_layer=loss_layer)
         #seg_loss = F.cross_entropy(segs, pseudo_label.type(torch.long), ignore_index=cfg.dataset.ignore_index)
         cls_loss = F.multilabel_soft_margin_loss(cls, cls_labels)
         
         if n_iter <= cfg.train.cam_iters:
-            loss = 1.0 * cls_loss + 0.0 * seg_loss + 0.0 * aff_loss + 0.0 * reg_loss
+            loss = 1.0 * cls_loss + 0.0 * seg_loss + 0.0 * aff_loss# + 0.0 * reg_loss
         else: 
-            loss = 1.0 * cls_loss + 0.1 * seg_loss + 0.1 * aff_loss + 0.01 * reg_loss
+            loss = 1.0 * cls_loss + 0.1 * seg_loss + 0.1 * aff_loss# + 0.01 * reg_loss
 
         avg_meter.add({'cls_loss': cls_loss.item(), 'seg_loss': seg_loss.item(), 'aff_loss': aff_loss.item()})
 
