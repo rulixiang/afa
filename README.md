@@ -78,7 +78,7 @@ cd afa
 
 ### Download Pre-trained weights
 
-Download the pre-trained weights from the official [SegFormer](https://github.com/NVlabs/SegFormer) implementation and move them to `pretrained/`.
+Download the ImageNet-1k pre-trained weights from the official [SegFormer](https://github.com/NVlabs/SegFormer#training) implementation and move them to `pretrained/`.
 
 ### [Optional] Build python extension module
 
